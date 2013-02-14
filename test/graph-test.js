@@ -64,3 +64,14 @@ exports.json = function (test) {
 	test.deepEqual(json, g.json());
 	test.done();
 }
+
+exports.copyConstructor = function (test) {
+    var g1 = new Graph();
+	var n1 = g1.addNode(3).attribute("name", "Node 1");
+	var n2 = g1.addNode(7).attribute("name", "Node 2");
+    n1.link(n2);
+    
+    var g2 = new Graph(g1.json(), Graph.INDEXED);
+    test.deepEqual(g2.json(), g1.json());
+    test.done();
+}
