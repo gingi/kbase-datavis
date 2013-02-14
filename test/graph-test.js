@@ -59,7 +59,7 @@ exports.json = function (test) {
 	n1.link(n2);
 	var json = {
 		"nodes" : [ { id: 3, name: "Node 1" }, { id: 7, name: "Node 2" } ],
-		"edges" : [ { source: 3, target: 7 }]
+		"edges" : [ { source: 0, target: 1 } ]
 	};
 	test.deepEqual(json, g.json());
 	test.done();
