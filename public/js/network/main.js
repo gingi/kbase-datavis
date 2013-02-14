@@ -1,6 +1,7 @@
 require(['jquery', 'backbone', 'underscore',
-    'renderers/network', 'util/progress', 'util/hud', 'network/nav'],
-    function ($, Backbone, _, NetworkVis, Progress, HUD, Nav) {
+    'renderers/network', 'util/progress', 'util/hud',
+    'util/graph', 'network/nav'],
+    function ($, Backbone, _, NetworkVis, Progress, HUD, Graph, Nav) {
         
     var neighborTemplate = _.template("/data/node/<%= id %>/neighbors");
     var networkTemplate  = _.template("/data/network/<%= id %>");
@@ -323,6 +324,10 @@ require(['jquery', 'backbone', 'underscore',
         if (neighbors1.nodes == null || neighbors1.nodes.length == 0 ||
             neighbors2.nodes == null || neighbors2.nodes.length == 0)
             return {};
+        var n1 = new Graph(neighbors1);
+        var n2 = new Graph(neighbors2);
+        console.log(n1.json(), n2.json());
+        return {};
         var candidates = {
             nodes: [],
             edges: [],
@@ -353,7 +358,6 @@ require(['jquery', 'backbone', 'underscore',
         neighbors2.edges.forEach(function (edge, i) {
             if (NodeIndex[edge.source] != null &&
                 NodeIndex[edge.target] != null) {
-            if ()
                 edge.source = NodeIndex[edge.source];
                 edge.target = NodeIndex[edge.target];
                 candidates.edges.push(edge);
@@ -365,7 +369,7 @@ require(['jquery', 'backbone', 'underscore',
                 });
             }
         });
-        return intersection;
+        return {};
     }
     
     var AppView = Backbone.View.extend({
