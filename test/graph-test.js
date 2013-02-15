@@ -85,6 +85,16 @@ exports.addNodeMeta = function (test) {
 }
 
 exports.eachNode = function (test) {
-    
+    var g = new Graph;
+    for (var i = 0; i < 17; i++) {
+        var n = g.addNode();
+        n.set('name', 'Node' + i);
+    }
+    var counter = 0;
+    g.eachNode(function (node) {
+        test.deepEqual({ name : "Node" + counter }, node.meta());
+        counter++;
+    });
+    test.equal(17, counter);
     test.done();
 }

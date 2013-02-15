@@ -49,8 +49,13 @@ define(function (require) {
         var lookup = {}; // Used for client node lookup by external ID
         
         self.link = function (n1, n2, meta) {
-            n1 = isNode(n1) ? n1._id : lookup[n1]._id;
-            n2 = isNode(n2) ? n2._id : lookup[n2]._id;
+            function findId(obj) {
+                if (isNode(obj)) { return obj._id }
+                var n = lookup[obj];
+                return n ? n._id : null;
+            }
+            n1 = findId(n1);
+            n2 = findId(n2);
             var key = [n1, n2].sort().join(" ");
             edges[key] = { source: nodes[n1], target: nodes[n2], meta: meta }
             return this;
@@ -120,6 +125,11 @@ define(function (require) {
                 jsonEdges.push(attributes);
             }
             return { nodes: jsonNodes, edges: jsonEdges };
+        }
+        self.eachNode = function (callback) {
+            for (var i in nodes) {
+                callback(nodes[i]);
+            }
         }
 
         function initializeData(graph) {
