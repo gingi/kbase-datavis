@@ -98,3 +98,15 @@ exports.eachNode = function (test) {
     test.equal(17, counter);
     test.done();
 }
+
+exports.findEdge = function (test) {
+    var g = new Graph;
+    var n1 = g.addNode({ color: "blue", shape: "circle" });
+    var n2 = g.addNode({ color: "green", shape: "square" });
+    n1.link(n2);
+    var edge = g.findEdge({ color: "blue" }, { shape: "square" });
+    test.deepEqual(n1, edge.source);
+    test.deepEqual(n2, edge.target);
+    test.ok(null === g.findEdge({ color: "blue"}, { shape: "circle" }));
+    test.done();
+}

@@ -131,6 +131,28 @@ define(function (require) {
                 callback(nodes[i]);
             }
         }
+        self.findNode = function (meta) {
+            for (var i in nodes) {
+                var node = nodes[i];
+                found = true;
+                for (var prop in meta) {
+                    if (node.get(prop) != meta[prop])
+                        found = false;
+                }
+                if (found) return node;
+            }
+        }
+        self.findEdge = function (meta1, meta2) {
+            var n1 = self.findNode(meta1)
+            var n2 = self.findNode(meta2);
+            for (var key in edges) {
+                var edge = edges[key];
+                if ((edge.source == n1 && edge.target == n2) ||
+                    (edge.target == n1 && edge.source == n2))
+                    return edge;
+            }
+            return null;
+        }
 
         function initializeData(graph) {
             if (graph.nodes) {
