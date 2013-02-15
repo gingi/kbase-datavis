@@ -75,3 +75,16 @@ exports.copyConstructor = function (test) {
     test.deepEqual(g2.json(), g1.json());
     test.done();
 }
+
+exports.addNodeMeta = function (test) {
+    var g = new Graph;
+    var n = g.addNode({ id: 7, a: "x" });
+    test.deepEqual(g.json(), { nodes: [{ id: 7, a: "x" }], edges: [] });
+    test.equal(7, n.get('id'));
+    test.done();
+}
+
+exports.eachNode = function (test) {
+    
+    test.done();
+}
