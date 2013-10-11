@@ -240,7 +240,6 @@ function (
         network.unhideNode(cluster);
         var neighbors = network.neighbors(cluster, null);
         _.each(neighbors, function (nPair) {
-            console.log("neighbor", nPair)
             var node = nPair[0];
             if (node.type === 'GENE')
                 network.unhideNode(node);
