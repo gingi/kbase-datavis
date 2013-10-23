@@ -5,7 +5,8 @@ define(['jquery', 'underscore', 'util/spin'], function (JQ, _, Spinner) {
         spinner: {},
         progress: {},
         type: _SPIN,
-        initialWidth: "100%"
+        initialWidth: "100%",
+        zIndex: 200
     };
     var spinnerDefaults = {
         length: 5,
@@ -71,7 +72,7 @@ define(['jquery', 'underscore', 'util/spin'], function (JQ, _, Spinner) {
             if (options.fade) {
                 container = JQ("<div>")
                     .attr("id", _id)
-                    .css("z-index", 30)
+                    .css("z-index", options.zIndex)
                     .css("background-color", "rgba(100%, 100%, 100%, 0.8)")
                     .css("position", "absolute")
                     .css("top", 0)

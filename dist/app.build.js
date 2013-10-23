@@ -24,7 +24,13 @@
         "util/spin",
         "util/progress",
         "util/hud",
-        "util/viewport"
+        "util/viewport",
+        "util/slider",
+        "transformers/netindex",
+        "text!templates/checkbox.html",
+        "text!templates/slider.html",
+        "text!templates/error-alert.html",
+        "text!sample-data/network1.json"
     ],
     onBuildRead: function (moduleName, path, contents) {
         if (moduleName == "util/spin") {
