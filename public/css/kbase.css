@@ -267,7 +267,9 @@ canvas.dragbox:active {
 
 .dt-top div { display: inline-block;}
 
-.dataTables_wrapper input.search-query, input.mini.search-query { font-size: 8pt; height: 12px; }
+.dataTables_wrapper input.search-query, input.mini.search-query {
+    font-size: 8pt;
+}
 
 .table-wrapper {
     overflow-y: auto;

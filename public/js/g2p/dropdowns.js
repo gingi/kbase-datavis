@@ -1,4 +1,4 @@
-define(["util/dropdown"], function (DropDown) {
+define(["jquery", "util/dropdown"], function (JQ, DropDown) {
     function DropDowns(dataAPI) {
         var self = this;
         var dropdowns, dropDownFactory;
@@ -67,8 +67,7 @@ define(["util/dropdown"], function (DropDown) {
 
         function breadcrumb(type) {
             return JQ("<li>")
-                .append(JQ("<a>", { id: "breadcrumb-" + type }))
-                .append(JQ("<span>").addClass("divider").text("/"));
+                .append(JQ("<a>", { id: "breadcrumb-" + type }));
         }
         
         function init() {
