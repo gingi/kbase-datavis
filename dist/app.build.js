@@ -2,6 +2,7 @@
     baseUrl:        "../public/js",
     mainConfigFile: "../public/js/config.js",
     namespace:      "KBVis",
+    name:           "KBVis",
     create:         true,
     wrap: {
         start: "(function () {",

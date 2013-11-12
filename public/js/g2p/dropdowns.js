@@ -1,4 +1,5 @@
-define(["util/dropdown"], function (DropDown) {
+define(["jquery", "underscore", "util/dropdown"],
+function (JQ, _, DropDown) {
     function DropDowns(dataAPI) {
         var self = this;
         var dropdowns, dropDownFactory;
