@@ -90,7 +90,7 @@ require(['jquery', 'backbone', 'underscore',
     Datavis.addDockAction(function (nodes) {
         var dock = this;
         var button = JQ("<button>")
-            .addClass("btn btn-small btn-primary")
+            .addClass("btn btn-sm btn-primary")
             .attr("id", "btn-get-clusters")
             .html("<i class=\"icon-plus-sign\"></i> Clusters");
         button.on("click", function () {
@@ -159,7 +159,7 @@ require(['jquery', 'backbone', 'underscore',
     var clusterNeighbors = {};
     Datavis.addDockAction(function (nodes) {
         var dock = this;
-        var button = JQ("<button>").addClass("btn btn-small")
+        var button = JQ("<button>").addClass("btn btn-sm")
             .attr("id", "btn-co-neighbors")
             .css("margin-left", 5)
             .attr("disabled", !clusters || clusters.length == 0)
@@ -169,7 +169,7 @@ require(['jquery', 'backbone', 'underscore',
     });
     Datavis.addDockAction(function (nodes) {
         var dock = this;
-        var button = JQ("<button>").addClass("btn btn-small")
+        var button = JQ("<button>").addClass("btn btn-sm")
             .attr("id", "btn-co-neighbors")
             .css("margin-left", 5)
             .html("<i class=\"icon-external-link\"></i> Internal");
