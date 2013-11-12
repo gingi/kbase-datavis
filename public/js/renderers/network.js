@@ -317,7 +317,7 @@ function (JQ, d3, _, Dock, EventEmitter, HUD, Revalidator) {
         };
 
         self.updateSearch = function (searchTerm) {
-            searchRegEx = new RegExp(searchTerm.toLowerCase());
+            var searchRegEx = new RegExp(searchTerm.toLowerCase());
             return svgNodes.each(function (d) {
                 var element, match = -1;
                 var searchContents = [];
