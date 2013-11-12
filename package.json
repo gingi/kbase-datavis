@@ -5,7 +5,7 @@
         "start": "node app"
     },
     "main": "app.js",
-    "version": "0.2.7",
+    "version": "0.2.8",
     "dependencies": {
         "amdefine"        : "~0.0.8",
         "async"           : "~0.2.9",
